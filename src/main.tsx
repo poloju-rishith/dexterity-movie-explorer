@@ -1,13 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-import MovieExplorerApplication from "./movie-explorer-application.tsx"
-
 import "normalize.css"
 import "./index.css"
+import Router from "./router"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <MovieExplorerApplication />
+    <Router />
   </React.StrictMode>
 )

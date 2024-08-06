@@ -1,0 +1,46 @@
+.motion-picture-detail {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.plot {
+  max-width: 50vw;
+  text-align: center;
+}
+
+.poster-container {
+  width: 50%;
+  aspect-ratio: 1;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.more-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ratings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rating-container {
+  display: flex;
+  gap: 10px;
+}
+
+.source {
+  font-size: 14px;
+}

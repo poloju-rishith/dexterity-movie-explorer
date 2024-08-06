@@ -25,6 +25,7 @@ const useMotionPicturesSearch = () => {
    */
   const handleSearch = useCallback(
     async (page: number, searchInput?: string) => {
+      setError(undefined)
       setLoading(true)
       setCurrentPage(page)
 

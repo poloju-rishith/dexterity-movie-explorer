@@ -4,13 +4,19 @@ import "../styles/search-result.css"
 
 type SearchResultProps = {
   motionPictureSearchResult: MotionPicturesSearchResult
+  onSearchResultClick: React.MouseEventHandler<HTMLDivElement>
 }
 
 const SearchResult: React.FC<SearchResultProps> = ({
   motionPictureSearchResult,
+  onSearchResultClick,
 }) => {
   return (
-    <div className="search-result">
+    <div
+      className="search-result"
+      onClick={onSearchResultClick}
+      data-imdbid={motionPictureSearchResult.imdbID}
+    >
       {motionPictureSearchResult.Poster &&
       motionPictureSearchResult.Poster !== "N/A" ? (
         <img

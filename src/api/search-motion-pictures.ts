@@ -23,22 +23,9 @@ export const searchMotionPictures = async (
   urlParams.set("apikey", import.meta.env.DEXTERITY_OMDB_API_KEY)
   urlParams.set("s", searchValue)
   urlParams.set("page", String(page))
-  // Dev
+
   const response = await fetch(`${OMDB_API}?${urlParams}`)
-  // const response = await getMock()
   const data = await response.json()
 
   return data
-}
-
-const getMock = () => {
-  return new Promise<{
-    json: () => MotionPicturesSearchApiResponse
-  }>((resolve) => {
-    setTimeout(() => {
-      resolve({
-        json: () => searchResponse,
-      })
-    }, 100)
-  })
 }
