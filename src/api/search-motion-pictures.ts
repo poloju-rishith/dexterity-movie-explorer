@@ -1,5 +1,4 @@
 import { OMDB_API } from "../constants"
-import { searchResponse } from "./mock-data"
 
 export type MotionPicturesSearchApiResponse = {
   Search: MotionPicturesSearchResult[]
