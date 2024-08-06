@@ -1,0 +1,18 @@
+.search-result {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border: 1px solid grey;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px;
+  gap: 15px;
+}
+
+.n-a-poster {
+  display: flex;
+  width: 230px;
+  height: 250px;
+  align-items: center;
+  justify-content: center;
+}

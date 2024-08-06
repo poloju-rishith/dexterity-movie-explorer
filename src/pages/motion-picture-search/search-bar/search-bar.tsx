@@ -1,4 +1,7 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
+
+import debounce from "../../../common/utils/debounce"
+import { DEBOUNCE_DELAY } from "../../../constants"
 
 export type SearchBarProps = {
   /**
@@ -16,40 +19,30 @@ export type SearchBarProps = {
  * @props {@link SearchBarProps}
  */
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [searchInput, setSearchInput] = useState<string>()
+  const [searchInput, setSearchInput] = useState<string>("")
+
+  const debouncedOnSearch = useMemo(
+    () => debounce(onSearch, DEBOUNCE_DELAY),
+    []
+  )
 
   const handleChangeSearchInput: React.ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
-    setSearchInput(event.target.value)
-  }
-
-  const handleSearch = () => {
-    /**
-     * Search button is enabled only when searchInput is not empty.
-     * So we can safely assume searchInput will not be null here.
-     */
-    onSearch(searchInput!)
+    const value = event.target.value
+    setSearchInput(value)
+    if (value) {
+      debouncedOnSearch(value)
+    }
   }
 
   return (
-    <div className="search-input-container">
-      <input
-        value={searchInput}
-        className="search-input"
-        placeholder="Enter movie or series title"
-        onChange={handleChangeSearchInput}
-      />
-
-      <button
-        title={!searchInput ? "Enter a title to search" : undefined}
-        disabled={!searchInput}
-        className="search-button"
-        onClick={handleSearch}
-      >
-        Search
-      </button>
-    </div>
+    <input
+      value={searchInput}
+      className="search-input"
+      placeholder="Enter movie or series title"
+      onChange={handleChangeSearchInput}
+    />
   )
 }
 

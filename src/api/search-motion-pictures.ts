@@ -1,13 +1,13 @@
 import { OMDB_API } from "../constants"
 import { searchResponse } from "./mock-data"
 
-export type SearchApiResponse = {
-  Search: MotionPictureSearchResult[]
+export type MotionPicturesSearchApiResponse = {
+  Search: MotionPicturesSearchResult[]
   totalResults: string
   Response: string
 }
 
-export type MotionPictureSearchResult = {
+export type MotionPicturesSearchResult = {
   Title: string
   Year: string
   imdbID: string
@@ -17,15 +17,15 @@ export type MotionPictureSearchResult = {
 
 export const searchMotionPictures = async (
   searchValue: string,
-  page: string = "1"
+  page: number = 1
 ) => {
   const urlParams = new URLSearchParams()
   urlParams.set("apikey", import.meta.env.DEXTERITY_OMDB_API_KEY)
   urlParams.set("s", searchValue)
-  urlParams.set("page", page)
+  urlParams.set("page", String(page))
   // Dev
-  // const response = await fetch(`${OMDB_API}?${urlParams}`)
-  const response = await getMock()
+  const response = await fetch(`${OMDB_API}?${urlParams}`)
+  // const response = await getMock()
   const data = await response.json()
 
   return data
@@ -33,7 +33,7 @@ export const searchMotionPictures = async (
 
 const getMock = () => {
   return new Promise<{
-    json: () => SearchApiResponse
+    json: () => MotionPicturesSearchApiResponse
   }>((resolve) => {
     setTimeout(() => {
       resolve({

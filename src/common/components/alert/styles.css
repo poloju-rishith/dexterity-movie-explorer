@@ -1,0 +1,11 @@
+.alert-container {
+  display: flex;
+  flex-grow: 1;
+  padding: 15px;
+  background-color: #ffccc7;
+  border-radius: 5px;
+}
+
+.alert-text {
+  color: #f5222d;
+}

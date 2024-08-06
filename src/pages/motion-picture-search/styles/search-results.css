@@ -1,0 +1,10 @@
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+}

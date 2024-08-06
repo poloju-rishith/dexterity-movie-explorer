@@ -1,6 +1,6 @@
-import { SearchApiResponse } from "./search-motion-pictures"
+import { MotionPicturesSearchApiResponse } from "./search-motion-pictures"
 
-export const searchResponse: SearchApiResponse = {
+export const searchResponse: MotionPicturesSearchApiResponse = {
   Search: [
     {
       Title: "Inter Star Wars 2: The Last Jehi",
