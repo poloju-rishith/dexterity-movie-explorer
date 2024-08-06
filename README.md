@@ -9,3 +9,4 @@
 - Create a `.env` file by referring the `.env.example` file using the API key from the previous step.
 - Run `npm run dev`
 - You can access the application at [localhost](http://localhost:5173)
+- You can access the deployed version at [https://dexterity-movie-explorer.vercel.app/](https://dexterity-movie-explorer.vercel.app/)
